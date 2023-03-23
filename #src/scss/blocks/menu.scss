@@ -13,7 +13,7 @@
     color: #fff;
     display: flex;
     flex-direction: column;
-    padding: 103px 15px 30px 15px;
+    padding: 140px 15px 30px 15px;
 
 
     &__nav {
@@ -56,4 +56,12 @@
 
 .menu.active {
     transform: translateX(0);
+}
+
+@media (max-width: 768px) {
+
+    .menu {
+
+        padding-top: 100px;
+    }
 }
