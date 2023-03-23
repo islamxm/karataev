@@ -1,0 +1,186 @@
+.header {
+
+    &__in {
+
+    }
+
+    &__top {
+        // padding:25px 0;
+        padding-top: 25px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        &_logo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex: 0 0 auto;
+
+            img {
+                max-width: 240px;
+                max-height: 73px;
+                width: 100%;
+                height: 100%;
+                object-fit: contain;
+                display: flex;
+            }
+        }
+
+        &_phone {
+            font-size: 25px;
+            font-weight: 700;
+            @include def-anim;
+
+            &:hover {
+                color: var(--orange);
+            }
+        }
+
+        &_burger {
+            display: none;
+        }
+    }
+
+    &__main {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        &_nav {
+            display: flex;
+            align-items: flex-end;
+
+            &_item.active {
+                a {
+                    &:after {
+                        height: 12px;
+                    }
+                }
+            }
+
+            &_item {
+
+                a {
+                    padding: 30px 15px 30px 15px;
+                    position: relative;
+                    display: block;
+
+                    &:after {
+                        position: absolute;
+                        content: '';
+                        background-color: var(--purp);
+                        width: 100%;
+                        height: 0;
+                        bottom: 0;
+                        left: 0;
+                        @include def-anim;
+                    }
+                }
+            }
+        }
+
+        &_action {
+            &_btn {
+                padding: 11px 30px;
+                color: var(--purp);
+                border: 2px solid var(--purp);
+                @include def-anim;
+                border-radius: 5px;
+
+                &:hover {
+                    background-color: var(--purp);
+                    color: #fff;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 1075px) {
+    .header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 100;
+        background-color: #fff;
+
+        
+        &__in {
+
+        }
+
+        &__top {
+            padding: 15px 0;
+
+            &_phone {
+                display: none;
+            }
+
+            &_burger.active {
+
+                span {
+                    &:nth-child(1) {
+                        transform: translateY(15px - 2px) rotate(-45deg);
+                    }
+                    &:nth-child(2) {
+                        opacity: 0;
+                    }
+                    &:nth-child(3) {
+                        transform: translateY(-15px + 2px) rotate(45deg);
+                    }
+                }
+            }
+
+            &_burger {
+                display: block;
+                position: relative;
+                width: 60px;
+                height: 30px;
+                @include def-anim;
+
+                span {
+                    border-radius: 5px;
+                    position: absolute;
+                    height: 4px;
+                    width: 100%;
+                    background-color: var(--black);
+                    display: block;
+                    @include def-anim;
+
+                    &:nth-child(1) {
+                        top: 0;
+                        left: 0;
+                    }
+                    &:nth-child(2) {
+                        top: calc(50% - 2px);
+                        left: 0;
+                    }
+                    &:nth-child(3) {
+                        bottom: 0;
+                        left: 0;
+                    }
+                }
+            }
+        }
+        &__main {
+            display: none;
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .header {
+
+        &__top {
+            &_logo {
+                
+                img {
+                    max-width: 150px;
+                    max-height: 50px;
+                }
+            }
+        }
+    }
+}
